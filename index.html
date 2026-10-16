@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location Tree Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Location Tree Builder</h1>
+      <p class="sub">Use <b>+ Child</b> on any location to add an area inside it. Drag a location onto another to move it there. The output on the right updates as you go.</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="expandAll">Expand all</button>
+      <button class="btn" id="collapseAll">Collapse all</button>
+      <button class="btn" id="reset">Reset</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="panel">
+      <div class="ph"><h2>Locations</h2></div>
+      <div class="pb">
+        <form class="addbar" id="addRootForm">
+          <input class="f" id="rootName" placeholder="New country name" autocomplete="off">
+          <button class="btn primary" type="submit">Add country</button>
+        </form>
+        <ul class="tree" id="tree"></ul>
+        <div class="rootzone" id="rootzone">Drop here to make it a top-level location</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="ph">
+        <h2>Output</h2>
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" aria-selected="true" data-v="tree">Tree</button>
+          <button class="tab" role="tab" aria-selected="false" data-v="json">JSON</button>
+        </div>
+      </div>
+      <pre class="out" id="out"></pre>
+    </section>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
